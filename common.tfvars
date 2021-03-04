@@ -1,5 +1,6 @@
-aws_key_name = "agilestacks"
-cluster_name = "testing-rs"
+aws_key_name = "anvil"
+root_domain  = "solohr.co"
+cluster_name = "sentry-cluster"
 cidr_block   = "10.0.0.0/16"
 sentry_email = "reinis@testsentry.com"
 sentry_pass  = "4CvLgVFY5xu%wmc*6Z^^"

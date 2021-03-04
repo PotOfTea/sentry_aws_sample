@@ -1,3 +1,8 @@
+locals {
+  s3_bucket = "sentry-io-reinis"
+  region    = "eu-central-1"
+}
+
 terraform {
   extra_arguments "common_vars" {
     commands = get_terraform_commands_that_need_vars()
@@ -17,8 +22,8 @@ remote_state {
     if_exists = "overwrite_terragrunt"
   }
   config = {
-    region = "eu-central-1"
-    bucket = "testing-reinis-as"
+    region = "${local.region}"
+    bucket = "${local.s3_bucket}"
     key  = "terraform/${path_relative_to_include()}"
   }
 }

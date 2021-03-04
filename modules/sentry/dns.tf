@@ -1,4 +1,14 @@
+data "aws_route53_zone" "base" {
+  name = "solohr.co"
+}
 
+resource "aws_route53_record" "sentry_p" {
+  zone_id = data.aws_route53_zone.base.zone_id
+  name    = "sentry"
+  type    = "CNAME"
+  ttl     = "60"
+  records = [aws_elb.ingress.dns_name]
+}
 
 resource "aws_route53_zone" "internal" {
   name = "i.${var.cluster_name}"
@@ -16,10 +26,3 @@ resource "aws_route53_record" "sentry_i" {
   records = [aws_instance.sentry.private_ip]
 }
 
-# resource "aws_route53_record" "root_domain" {
-#   zone_id = data.aws_route53_zone.public.zone_id
-#   name    = "sentry"
-#   type    = "CNAME"
-#   ttl     = "60"
-#   records = [aws_elb.ingress.dns_name]
-# }

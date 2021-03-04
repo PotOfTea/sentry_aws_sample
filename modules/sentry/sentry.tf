@@ -45,14 +45,12 @@ resource "aws_security_group_rule" "egress_sentry" {
 
 
 data "template_file" "init_script" {
-  template = "${file("${path.module}/scripts/init-sentry.sh.tpl")}"
+  template = file("${path.module}/scripts/init-sentry.sh.tpl")
   vars = {
     sentry_email = var.sentry_email
     sentry_pass  = var.sentry_pass
   }
 }
-
-
 
 resource "aws_instance" "sentry" {
   ami                           = data.aws_ami.ubuntu.id
@@ -65,7 +63,7 @@ resource "aws_instance" "sentry" {
   
   tags = {
     "env"  = var.env
-    "name" = "${var.cluster_name}-sentry"
+    "Name" = "${var.cluster_name}-sentry"
     "terraform" = "true"
   }
 }

@@ -1,10 +1,7 @@
 # Intro
+Deploy sentry.io on EC2 via init-scripts and expouses console via ELB.
 
 ## Short Info
-
-In different settings I would have chosen: "eks/helm/let's encrypt/nginx ingress", but as the tasks was to write infrastructure  - I settled with more basic approach.
-
-I've include bastion host and basic security. Main reason:  I thought that this would be important in context of job position and what you were looking for.
 
 Basic project structure:
 

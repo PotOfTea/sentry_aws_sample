@@ -5,10 +5,10 @@ Deploy sentry.io on EC2 via init-scripts and expouses console via ELB.
 
 Basic project structure:
 
-* Vpc
+* VPC
 * 2 EC2 instances(bastion, sentry)
 * Security groups/roles
-* Elb
+* ELB
 * Internal zone and public dns record in zone specified by user.
 
 ## Diagram
